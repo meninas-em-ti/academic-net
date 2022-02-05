@@ -1,4 +1,4 @@
-# academic-net
+# Academic-net
 A complete aplication using Spring Boot based on the [YouTube playlist](https://www.youtube.com/watch?v=WKL_BrUfe9Q&list=PLoBE72jMC_aKiM7hg-o_JxaWJvxiBBLo2) from feltex. 
 
 # What do you need
