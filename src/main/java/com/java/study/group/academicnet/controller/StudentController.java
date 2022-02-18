@@ -1,21 +1,33 @@
 package com.java.study.group.academicnet.controller;
 
 import com.java.study.group.academicnet.model.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.java.study.group.academicnet.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
+import java.util.List;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
+    @Autowired
+    private StudentRepository studentRepository;
+
     @GetMapping
-    public Student getInfo(){
+    public List<Student> listAll(){
+        return studentRepository.findAll();
+    }
 
-        Student student = new Student(1L, "Luis Viton", "111122", "viton@luis.com", Instant.now());
+    @PostMapping
+    public void register (@RequestBody Student student){
 
-        return student;
+        studentRepository.save(student);
+    }
+
+    @PutMapping
+    public void update(@RequestBody Student student){
+        studentRepository.save(student);
     }
 }
