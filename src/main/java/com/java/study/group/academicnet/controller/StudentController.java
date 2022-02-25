@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
@@ -22,12 +23,21 @@ public class StudentController {
 
     @PostMapping
     public void register (@RequestBody Student student){
-
         studentRepository.save(student);
     }
 
     @PutMapping
     public void update(@RequestBody Student student){
         studentRepository.save(student);
+    }
+
+    @DeleteMapping("/{registrationId}")
+    public void delete(@PathVariable Long registrationId){
+        studentRepository.deleteById(registrationId);
+    }
+
+    @GetMapping("/{registrationId}")
+    public Optional<Student> listAStudent(@PathVariable Long registrationId) {
+       return studentRepository.findById(registrationId);
     }
 }
