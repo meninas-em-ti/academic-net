@@ -5,7 +5,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.java.study.group.academicnet.model.Student;
 import com.java.study.group.academicnet.repository.StudentRepository;
 import lombok.var;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,9 +14,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-
 import java.time.Instant;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -40,10 +37,6 @@ class AcademicNetApplicationTests {
 	@Autowired
 	StudentRepository studentRepository;
 
-	@BeforeAll
-	static void environmentSetup() {
-
-	}
 
 	private String getUrlService() {
 		return "http://localhost:" + port + "/students/";
@@ -59,5 +52,4 @@ class AcademicNetApplicationTests {
 
 		assertEquals(HttpStatus.OK, responseCode);
 	}
-
 }
